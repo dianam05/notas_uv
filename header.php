@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-        
-        <meta charset="utf-8">
-        
-	<title>NotasParaSiempre.com</title>
-	
 
-	<!-- The styles -->
-	<link id="bs-css" href="css/bootstrap-cerulean.css" rel="stylesheet">
-	<style type="text/css">
-	  body {
-		padding-bottom: 40px;
-	  }
-	  .sidebar-nav {
-		padding: 9px 0;
-	  }
-	</style>
-	<link href="css/bootstrap-responsive.css" rel="stylesheet">
-	<link href="css/charisma-app.css" rel="stylesheet">
-	<link href="css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
-	<link href='css/fullcalendar.css' rel='stylesheet'>
-	<link href='css/fullcalendar.print.css' rel='stylesheet'  media='print'>
-	<link href='css/chosen.css' rel='stylesheet'>
-	<link href='css/uniform.default.css' rel='stylesheet'>
-	<link href='css/colorbox.css' rel='stylesheet'>
-	<link href='css/jquery.cleditor.css' rel='stylesheet'>
-	<link href='css/jquery.noty.css' rel='stylesheet'>
-	<link href='css/noty_theme_default.css' rel='stylesheet'>
-	<link href='css/elfinder.min.css' rel='stylesheet'>
-	<link href='css/elfinder.theme.css' rel='stylesheet'>
-	<link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
-	<link href='css/opa-icons.css' rel='stylesheet'>
-	<link href='css/uploadify.css' rel='stylesheet'>
-
-	
-	<link rel="shortcut icon" href="img/favicon.ico">
-		
-</head>
-
-<body>
 	<?php if(!isset($no_visible_elements) || !$no_visible_elements)	{ ?>
 	<!-- topbar starts -->
 	<div class="navbar">
@@ -50,7 +9,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a  href="index.php"> <img src="img/logo20.png" /> <span>Notas Para Siempre</span></a>
+				<a  href="index.php"> <img src="<?php echo ROOT_URL;?>img/logo20.png" /> <span>Notas Para Siempre</span></a>
 				
 			
 				
@@ -91,12 +50,12 @@
 			<div class="span2 main-menu-span">
 				<div class="well nav-collapse sidebar-nav">
 					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li class="nav-header hidden-tablet">Main</li>
-						<li><a class="ajax-link" href="index.html"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+						<li class="nav-header hidden-tablet">Menu</li>
+						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Inicio</span></a></li>
 						<li><a class="ajax-link" href="admin_users/"><i class="icon-user"></i><span class="hidden-tablet"> Usuarios</span></a></li>
-						<li><a class="ajax-link" href="form.html"><i class="icon-book"></i><span class="hidden-tablet"> Cuadernos</span></a></li>
-						<li><a class="ajax-link" href="chart.html"><i class="icon-page"></i><span class="hidden-tablet"> Notas</span></a></li>
-						<li><a class="ajax-link" href="typography.html"><i class="icon-image"></i><span class="hidden-tablet"> Recursos</span></a></li>
+						<li><a class="ajax-link" href="form.php"><i class="icon-book"></i><span class="hidden-tablet"> Cuadernos</span></a></li>
+						<li><a class="ajax-link" href="admin/notas/"><i class="icon-page"></i><span class="hidden-tablet"> Notas</span></a></li>
+						<li><a class="ajax-link" href="typography.php"><i class="icon-image"></i><span class="hidden-tablet"> Recursos</span></a></li>
 <!--						<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
 						<li class="nav-header hidden-tablet">Sample Section</li>
 						<li><a class="ajax-link" href="table.html"><i class="icon-align-justify"></i><span class="hidden-tablet"> Tables</span></a></li>
@@ -123,3 +82,37 @@
 			<div id="content" class="span10">
 			<!-- content starts -->
 			<?php } ?>
+<div>
+				<ul class="breadcrumb">
+					<li>
+						<a href="<?php echo ROOT_URL;?>index.php">Inicio</a> <span class="divider">/</span>
+					</li>
+					
+				</ul>
+			</div>
+			<div class="sortable row-fluid">
+				<a data-rel="tooltip" class="well span3 top-block" href="#">
+					<span class="icon32 icon-red icon-user"></span>
+					<div>Usuarios</div>
+					
+					<span class="notification"></span>
+				</a>
+
+				<a data-rel="tooltip"  class="well span3 top-block" href="#">
+					<span class="icon32 icon-color icon-book"></span>
+					<div>Cuadernos</div>
+					<span class="notification green"></span>
+				</a>
+
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo ROOT_URL;?>admin/notas/">
+					<span class="icon32 icon-color icon-page"></span>
+					<div>Notas</div>
+					<span class="notification yellow"></span>
+				</a>
+				
+				<a data-rel="tooltip" t class="well span3 top-block" href="#">
+					<span class="icon32 icon-color icon-image"></span>
+					<div>Recursos</div>
+					<span class="notification red"></span>
+				</a>
+			</div>
