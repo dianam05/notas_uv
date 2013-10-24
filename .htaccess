@@ -1,0 +1,6 @@
+ErrorDocument 404 /404.php
+Options +FollowSymLinks
+
+RewriteEngine on
+
+RewriteRule ^admin_users/$ admin/admin_user.php [NC,L]
