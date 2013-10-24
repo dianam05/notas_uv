@@ -4,8 +4,14 @@ require_once ('../config/config.php');
 //print_r($_SESSION);
 Class_restrict::restrict_page();
 //include('header.php'); 
-notas_utility::login( $_POST['username'] , $_POST['password'] );
-class_admin_notas::insert($_POST['nombre'], $_POST['descripcion'])
+if(isset($_POST['insert_note'])){
+    
+    $nota = new class_admin_notas();
+    $nota->insert( $_POST['descripcion'], $_POST['id_user'], $_POST['id_cuaderno']);
+    
+}
+
+$cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,29 +46,41 @@ class_admin_notas::insert($_POST['nombre'], $_POST['descripcion'])
 						</div>
 					</div>
 					<div class="box-content">
-						<form class="form-horizontal">
+                                            <form class="form-horizontal" method="post" name="form1" id="form1">
 						  <fieldset>
-							<div class="control-group">
+<!--							<div class="control-group">
 							  <label class="control-label" for="typeahead" name="nombre">Nombre </label>
 							  <div class="controls">
-								<input type="text" >
+                                                              <input type="text" name="nombre">
+							  </div>
+							</div>-->
+                                                       <div class="control-group">
+							  <label class="control-label" for="typeahead" name="id_cuaderno">Cuaderno </label>
+							  <div class="controls">
+                                                              <select name="id_cuaderno" class="validate[required]">
+                                                                  <option value="0">Seleccione</option>
+                                                                  <?php foreach ($cuadernos as $cuaderno){ ?>
+                                                                  <option value="<?= $cuaderno['id']; ?>"><?= $cuaderno['nombre']; ?></option>   
+                                                                  <?php } ?>
+                                                              </select>
 							  </div>
 							</div>
 							<div class="control-group">
-							  <label class="control-label" for="textarea2" name="descripcion">Descripción</label>
+							  <label class="control-label" for="textarea2" name="descripcion">Nota</label>
 							  <div class="controls">
-								<textarea class="cleditor" id="textarea2" rows="3"></textarea>
+                                                              <textarea class="cleditor validate[required]" id="textarea2" rows="8" name="descripcion"></textarea>
 							  </div>
 							</div>
-
 							<div class="control-group">
 							  <label class="control-label" for="fileInput">Agregar recurso</label>
 							  <div class="controls">
 								<input class="input-file uniform_on" id="fileInput" type="file">
 							  </div>
 							</div> 
+                                                      <input type="hidden" name="id_user" value="<?php echo $_SESSION['nt_user_id'] ?>">
+                                                      
 							<div class="form-actions">
-							  <button type="submit" class="btn btn-primary">Guardar</button>
+							  <button type="submit" name="insert_note" class="btn btn-primary">Guardar</button>
 							  <button type="reset" class="btn">Cancelar</button>
 							</div>
 						  </fieldset>
@@ -75,5 +93,12 @@ class_admin_notas::insert($_POST['nombre'], $_POST['descripcion'])
     
     
 <?php include('../footer.php'); ?>
+    <script>
+                
+		$(document).ready(function(){
+			// binds form submission and fields to the validation engine
+			$("#form1").validationEngine('attach',{promptPosition : "topRight"});
+		});
+    </script>
 </body>
 </html>

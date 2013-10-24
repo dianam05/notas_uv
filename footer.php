@@ -75,6 +75,10 @@
 	<script src="<?php echo ROOT_URL;?>js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
 <!--	<script src="<?php echo ROOT_URL;?>js/charisma.js"></script>-->
+        
+        <script src="<?php echo ROOT_URL; ?>validationform/js/jquery.validationEngine-es.js.php" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="<?php echo ROOT_URL; ?>validationform/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 	
 	<?php //Google Analytics code for tracking my demo site, you can remove this.
 		if($_SERVER['HTTP_HOST']=='usman.it') { ?>

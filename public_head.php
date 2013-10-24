@@ -29,6 +29,7 @@
 	<link href='<?php echo ROOT_URL;?>css/jquery.iphone.toggle.css' rel='stylesheet'>
 	<link href='<?php echo ROOT_URL;?>css/opa-icons.css' rel='stylesheet'>
 	<link href='<?php echo ROOT_URL;?>css/uploadify.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" href="<?php echo ROOT_URL; ?>validationform/css/validationEngine.jquery.css"/>
 
 	
 	<link rel="shortcut icon" href="<?php echo ROOT_URL;?>img/favicon2.ico">

@@ -18,10 +18,26 @@ class notas_utility {
             if( $row['total'] == 1 ){
                 header('Location:index.php');
                 $_SESSION['nt_username']=$row['username'];
+                $_SESSION['nt_user_id']=$row['id'];
             }else{
                 header('Location: '.ROOT_URL.'login.php?m=FAIL');
             }
         }catch(Exception $e){
+            return $e->getMessage();
+        }
+    }
+    
+    public static function getNotebookUser ($id_user){
+        try{
+            $db = ntDB::getInstance();
+            $sql = ' select id,nombre from notebook where id_user = ? ';
+            $s = $db->prepare( $sql );
+            $s->bindParam( 1, $id_user );
+            $s->execute();
+            return $s->fetchAll();
+            
+        }catch(Exception $e){
+            return array();
             return $e->getMessage();
         }
     }

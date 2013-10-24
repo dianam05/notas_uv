@@ -9,6 +9,7 @@ function notas_autoload($className) {
         'ntDB'          => '../libs/notas-db/class-ntDB.php',
         'notas_utility' => '../libs/notas-utility/notas-utility.php',
         'Class_restrict'=> '../libs/notas-utility/Class-restrict.php',
+        'class_admin_notas'=> '../libs/notas-utility/class_admin_notas.php',
     );
 
     if (isset($arr[$className])) {

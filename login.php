@@ -6,7 +6,15 @@ if(isset($_POST['guardar']) && $_POST['guardar'] == "si" ){
     notas_utility::login( $_POST['username'] , $_POST['password'] );
 }
 $no_visible_elements=true;
-include('header.php'); ?>
+?>
+<html lang="es">
+<head>
+        
+<?php include_once 'public_head.php'; ?>    
+		
+</head>
+
+<body>
 
 			<div class="row-fluid">
 				<div class="span12 center login-header">
