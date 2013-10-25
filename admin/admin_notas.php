@@ -52,7 +52,7 @@ $notes = class_admin_notas::totalnotas();
 						  <tbody>
                                                       <?php foreach ($notes as $note){ ?>
 							<tr>
-                                                                <td class="center"><?php echo $note['id_user']; ?></td>
+                                                                <td class="center"><?php echo $note['username']; ?></td>
 								<td class="center"><?php echo $note['id_notebook']; ?></td>
 								<td class="center"><?php echo $note['descripcion']; ?></td>
 								<td class="center"><?php echo $note['fecha_creacion']; ?></td>

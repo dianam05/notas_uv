@@ -46,7 +46,7 @@ class class_admin_notas {
         
         try {
             $db = ntDB::getInstance();
-            $sqlnotas='select id, id_user, id_notebook, descripcion, fecha_creacion from notes';
+            $sqlnotas='select id, id_user, id_notebook, descripcion, fecha_creacion,username from notes n inner join user u on n.id_user=u.id_user';
             $resultado= $db->prepare( $sqlnotas );
             $resultado->execute();
 
