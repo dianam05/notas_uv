@@ -74,7 +74,7 @@
 	<!-- history.js for cross-browser state change on ajax -->
 	<script src="<?php echo ROOT_URL;?>js/jquery.history.js"></script>
 	<!-- application script for Charisma demo -->
-<!--	<script src="<?php echo ROOT_URL;?>js/charisma.js"></script>-->
+	<script src="<?php echo ROOT_URL;?>js/charisma.js"></script>
         
         <script src="<?php echo ROOT_URL; ?>validationform/js/jquery.validationEngine-es.js.php" type="text/javascript" charset="utf-8"></script>
         

@@ -41,5 +41,35 @@ class notas_utility {
             return $e->getMessage();
         }
     }
+    
+    public static function countmodules ($module){
+        try{
+            $db = ntDB::getInstance();
+            
+            switch ($module){     
+            
+                case 'users': 
+                    $st = $db->prepare('SELECT count(id)as cant FROM user WHERE estado = 1 ');
+                    break;
+                case 'cuadernos':
+                    $st = $db->prepare('SELECT count(id)as cant FROM notebook  ');
+                    break;
+                case 'notas':
+                    $st = $db->prepare('SELECT count(id)as cant FROM notes  ');
+                    break;
+                default:
+                    
+            }
+            
+            
+            $st->execute();
+            $row = $st->fetch();
+            
+            return $row['cant'];
+        }catch(Exception $e){
+            return -1;
+            return $e->getMessage();
+        }
+    }
 }
 ?>

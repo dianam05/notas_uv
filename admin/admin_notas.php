@@ -4,6 +4,8 @@ require_once ('../config/config.php');
 //print_r($_SESSION);
 Class_restrict::restrict_page();
 //include('header.php'); 
+
+$notes = class_admin_notas::totalnotas();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -41,21 +43,20 @@ Class_restrict::restrict_page();
 							  <tr>
 								  <th>Usuario</th>
 								  <th>Cuaderno</th>
-								  <th>Nombre</th>
-								  <th>Descripción</th>
+								  <th>Nota</th>
+                                                                  <th>Fecha creación</th>
 								  <th>Recursos</th>
                                                                   <th></th>
 							  </tr>
 						  </thead>   
 						  <tbody>
+                                                      <?php foreach ($notes as $note){ ?>
 							<tr>
-								<td>David R</td>
-								<td class="center">2012/01/01</td>
-								<td class="center">Member</td>
-								<td class="center">
-									<span class="label label-success">Activo</span>
-								</td>
-                                                                <td class="center">Member</td>
+                                                                <td class="center"><?php echo $note['id_user']; ?></td>
+								<td class="center"><?php echo $note['id_notebook']; ?></td>
+								<td class="center"><?php echo $note['descripcion']; ?></td>
+								<td class="center"><?php echo $note['fecha_creacion']; ?></td>
+                                                                <td class="center"></td>
 								<td class="center">
 									<a class="btn btn-success" href="#">
 										<i class="icon-zoom-in icon-white"></i>  
@@ -71,7 +72,7 @@ Class_restrict::restrict_page();
 									</a>
 								</td>
 							</tr>
-							
+                                                      <?php } ?>
 						  </tbody>
 					  </table>  
                                         <a class="btn btn-primary" href="<?php echo ROOT_URL; ?>admin/crear_nota/">

@@ -10,6 +10,7 @@ function notas_autoload($className) {
         'notas_utility' => '../libs/notas-utility/notas-utility.php',
         'Class_restrict'=> '../libs/notas-utility/Class-restrict.php',
         'class_admin_notas'=> '../libs/notas-utility/class_admin_notas.php',
+        'class_admin_user'=> '../libs/notas-utility/class_admin_user.php',
     );
 
     if (isset($arr[$className])) {

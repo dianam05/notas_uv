@@ -66,7 +66,7 @@
                 },
                 "phone": {
                     // credit: jquery.h5validate.js / orefalo
-                    "regex": /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{2,6}[\)])?([0-9 \.\-\/]{3,30})((x|ext|extension)[ ]?[0-9]{1,4})?$/,
+                    "regex": /^([\+][0-9]{1,3}[ \.\-])?([\(]{1}[0-9]{2,6}[\)])?([0-9 \.\-\/]{3,20})((x|ext|extension)[ ]?[0-9]{1,4})?$/,
                     "alertText": "* Número de teléfono inválido"
                 },
                 "email": {
@@ -84,13 +84,9 @@
                     "alertText": "* No es un valor decimal válido"
                 },
                 "date": {
-                    "regex": /^\d{4}[\-](0?[1-9]|1[012])[\-](0?[1-9]|[12][0-9]|3[01])$/,
-                    "alertText": "* Fecha inválida, por favor utilize el formato AAA-MM-DD"
-                },
-                "date2": {
-                    "regex": /^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/]\d{4}$/,
+                    "regex": /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/,
                     "alertText": "* Fecha inválida, por favor utilize el formato DD/MM/AAAA"
-                },        
+                },
                 "ipv4": {
                 	"regex": /^((([01]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))[.]){3}(([0-1]?[0-9]{1,2})|(2[0-4][0-9])|(25[0-5]))$/,
                     "alertText": "* Direccion IP inválida"
@@ -104,23 +100,14 @@
                     "alertText": "* Sólo números"
                 },
 			    "onlyLetterSp": {
-                    "regex": /^[a-zA-Z\ ]+$/,
-                    "alertText": "* Sólo letras"
-                },
-				"onlyLetterSp2": {
-                    "regex": /^[a-zA-ZñÑáÁéÉíÍóÓúÚüÜ\ ]+$/,
+                    "regex": /^[a-zA-Z\ \']+$/,
                     "alertText": "* Sólo letras"
                 },
                 "onlyLetterNumber": {
                     "regex": /^[0-9a-zA-Z]+$/,
                     "alertText": "* No se permiten caracteres especiales"
                 },
-                "onlyPassword": {
-                    "regex": /(?=^.{8,16}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[a-zA-Z]).*$/,
-                    "alertText": "* Contraseña invalida "
-                },
 				// --- CUSTOM RULES -- Those are specific to the demos, they can be removed or changed to your likings
-                
                 "ajaxUserCall": {
                     "url": "ajaxValidateFieldUser",
 					// you may want to pass extra data on the ajax call

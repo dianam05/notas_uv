@@ -1,6 +1,18 @@
 $(document).ready(function(){
+    
 	//themes, change CSS with JS
 	//default theme(CSS) is cerulean, change it if needed
+        $('.datepicker').datepicker({
+        dateFormat: 'dd/mm/yy'}
+        );
+        $('.fechadate').datepicker({
+        dateFormat: 'yy/mm/dd'}
+        );   
+        $('.fechadate10').datepicker({
+        dateFormat: 'yy-mm-dd'}
+        );    
+            
+        
 	var current_theme = $.cookie('current_theme')==null ? 'cerulean' :$.cookie('current_theme');
 	switch_theme(current_theme);
 	
@@ -18,7 +30,7 @@ $(document).ready(function(){
 	
 	function switch_theme(theme_name)
 	{
-		$('#bs-css').attr('href','css/bootstrap-'+theme_name+'.css');
+		$('#bs-css').attr('href',ROOT_URL.'css/bootstrap-'+theme_name+'.css');
 	}
 	
 	//ajax menu checkbox
@@ -59,8 +71,6 @@ $(document).ready(function(){
 				$('#content').html($(msg).find('#content').html());
 				$('#loading').remove();
 				$('#content').fadeIn();
-				var newTitle = $(msg).filter('title').text();
-				$('title').text(newTitle);
 				docReady();
 			}
 		});
@@ -93,6 +103,20 @@ $(document).ready(function(){
 	
 	//other things to do on document ready, seperated for ajax calls
 	docReady();
+        
+        //confirmacion
+        
+        $('.confirmar').click(function (){
+            x = "¿ Desea cerrar sesion ?";
+            if(confirm(x)){
+                
+            }else{
+                return false;
+            }
+        });
+        
+        
+        
 });
 		
 		
@@ -103,7 +127,7 @@ function docReady(){
 	});
 	
 	//rich text editor
-	$('.cleditor').cleditor();
+	//$('.cleditor').cleditor();
 	
 	//datepicker
 	$('.datepicker').datepicker();
@@ -163,13 +187,22 @@ function docReady(){
 	$('.raty').raty({
 		score : 4 //default stars
 	});
-
-	//uploadify - multiple uploads
+        
+       // uploadify - multiple uploads
 	$('#file_upload').uploadify({
 		'swf'      : 'misc/uploadify.swf',
-		'uploader' : 'misc/uploadify.php'
+		'uploader' : 'misc/uploadify.php',
+                'method'   : 'post',
+                'formData' : { 'IMU' : 'IMUFiles' },
+                'onUploadSuccess' : function(file, data, response) {
+                    alert('The file was saved to: ' + data);
+                }
+                
+             
 		// Put your options here
 	});
+        
+        
 
 	//gallery controlls container animation
 	$('ul.gallery li').hover(function(){
@@ -190,10 +223,22 @@ function docReady(){
 	//gallery image controls example
 	//gallery delete
 	$('.thumbnails').on('click','.gallery-delete',function(e){
-		e.preventDefault();
+		
+                
 		//get image id
 		//alert($(this).parents('.thumbnail').attr('id'));
-		$(this).parents('.thumbnail').fadeOut();
+                if (confirm('¿Desea eliminar esta imagen?')){
+                    //alert($(this).parents('.thumbnail').attr('id'));
+                    elegido = $(this).parents('.thumbnail').attr('id');
+                    $.post("delete_image.php", {elegido: elegido}, function(data) {
+                       alert(data);
+                       
+                    });
+                }else{
+                    return false;
+                }
+		e.preventDefault();
+                $(this).parents('.thumbnail').fadeOut();
 	});
 	//gallery edit
 	$('.thumbnails').on('click','.gallery-edit',function(e){

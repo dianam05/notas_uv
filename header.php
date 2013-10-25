@@ -1,5 +1,14 @@
+<?php
+require_once('../connections/conn.php'); 
+require_once ('../config/config.php');
+//print_r($_SESSION);
+Class_restrict::restrict_page();
 
-	<?php if(!isset($no_visible_elements) || !$no_visible_elements)	{ ?>
+$cantidad_user =  notas_utility::countmodules('users');
+$cantidad_cuadernos =  notas_utility::countmodules('cuadernos');
+$cantidad_notas =  notas_utility::countmodules('notas');
+
+ if(!isset($no_visible_elements) || !$no_visible_elements)	{ ?>
 	<!-- topbar starts -->
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -22,7 +31,7 @@
 					<ul class="dropdown-menu">
 						<li><a href="#">Perfil</a></li>
 						<li class="divider"></li>
-						<li><a href="login.php">Salir</a></li>
+						<li><a href="<?php echo ROOT_URL;?>login.php">Salir</a></li>
 					</ul>
 				</div>
 				<!-- user dropdown ends -->
@@ -52,9 +61,9 @@
 					<ul class="nav nav-tabs nav-stacked main-menu">
 						<li class="nav-header hidden-tablet">Menu</li>
 						<li><a class="ajax-link" href="index.php"><i class="icon-home"></i><span class="hidden-tablet"> Inicio</span></a></li>
-						<li><a class="ajax-link" href="admin_users/"><i class="icon-user"></i><span class="hidden-tablet"> Usuarios</span></a></li>
+						<li><a class="ajax-link" href="<?php echo ROOT_URL;?>admin/admin_users/"><i class="icon-user"></i><span class="hidden-tablet"> Usuarios</span></a></li>
 						<li><a class="ajax-link" href="form.php"><i class="icon-book"></i><span class="hidden-tablet"> Cuadernos</span></a></li>
-						<li><a class="ajax-link" href="admin/notas/"><i class="icon-page"></i><span class="hidden-tablet"> Notas</span></a></li>
+						<li><a class="ajax-link" href="<?php echo ROOT_URL;?>admin/notas/"><i class="icon-page"></i><span class="hidden-tablet"> Notas</span></a></li>
 						<li><a class="ajax-link" href="typography.php"><i class="icon-image"></i><span class="hidden-tablet"> Recursos</span></a></li>
 <!--						<li><a class="ajax-link" href="gallery.html"><i class="icon-picture"></i><span class="hidden-tablet"> Gallery</span></a></li>
 						<li class="nav-header hidden-tablet">Sample Section</li>
@@ -91,28 +100,28 @@
 				</ul>
 			</div>
 			<div class="sortable row-fluid">
-				<a data-rel="tooltip" class="well span3 top-block" href="#">
+				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo ROOT_URL;?>admin/admin_users/">
 					<span class="icon32 icon-red icon-user"></span>
 					<div>Usuarios</div>
 					
-					<span class="notification"></span>
+					<span class="notification"><?php echo $cantidad_user; ?></span>
 				</a>
 
 				<a data-rel="tooltip"  class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-book"></span>
 					<div>Cuadernos</div>
-					<span class="notification green"></span>
+					<span class="notification green"><?php echo $cantidad_cuadernos; ?></span>
 				</a>
 
 				<a data-rel="tooltip" class="well span3 top-block" href="<?php echo ROOT_URL;?>admin/notas/">
 					<span class="icon32 icon-color icon-page"></span>
 					<div>Notas</div>
-					<span class="notification yellow"></span>
+					<span class="notification yellow"><?php echo $cantidad_notas; ?></span>
 				</a>
 				
 				<a data-rel="tooltip" t class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-image"></span>
 					<div>Recursos</div>
-					<span class="notification red"></span>
+					<span class="notification red"><?php echo $cantidad_notas; ?></span>
 				</a>
 			</div>

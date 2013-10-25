@@ -5,4 +5,5 @@ RewriteEngine on
 
 RewriteRule ^admin_users/$ admin_user.php [NC,L]
 RewriteRule ^notas/$ admin_notas.php [NC,L]
+RewriteRule ^crear_usuario/$ new_user.php [NC,L]
 RewriteRule ^crear_nota/$ new_nota.php [NC,L]
