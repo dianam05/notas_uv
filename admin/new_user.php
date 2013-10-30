@@ -2,7 +2,7 @@
 require_once('../connections/conn.php'); 
 require_once ('../config/config.php');
 //print_r($_SESSION);
-Class_restrict::restrict_page();
+//Class_restrict::restrict_page();
 //include('header.php'); 
 $mostrar_msn=false;
 $msn='';

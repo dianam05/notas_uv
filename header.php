@@ -1,6 +1,6 @@
 <?php
-require_once('../connections/conn.php'); 
-require_once ('../config/config.php');
+require_once('connections/conn.php'); 
+require_once ('config/config.php');
 //print_r($_SESSION);
 Class_restrict::restrict_page();
 

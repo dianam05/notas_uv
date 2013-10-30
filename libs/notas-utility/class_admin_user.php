@@ -29,7 +29,7 @@ class class_admin_user {
         $this->id               = (isset($data['id'])) ? $data['id'] : null;
         $this->username         = (isset($data['username'])) ? $data['username'] : null;
         $this->password         = (isset($data['password'])) ? $data['password'] : null;
-        $this->email     	= (isset($data['email'])) ? $data['email'] : null;
+        $this->email     	    = (isset($data['email'])) ? $data['email'] : null;
         $this->id_profile       = (isset($data['id_profile'])) ? $data['id_profile'] : null;
         $this->fecha_registro   = (isset($data['fecha_registro'])) ? $data['fecha_registro'] : null;
         $this->estado           = (isset($data['estado'])) ? $data['estado'] : null;

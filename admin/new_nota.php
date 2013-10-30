@@ -2,13 +2,20 @@
 require_once('../connections/conn.php'); 
 require_once ('../config/config.php');
 //print_r($_SESSION);
-Class_restrict::restrict_page();
+//Class_restrict::restrict_page();
 //include('header.php'); 
+$mostrar_msn=false;
+$msn='';
 if(isset($_POST['insert_note'])){
     
-    $nota = new class_admin_notas();
-    $nota->insert( $_POST['descripcion'], $_POST['id_user'], $_POST['id_cuaderno']);
-    
+    $mostrar_msn = true;
+	$nota = new class_admin_notas();
+    $result = $nota->insert( $_POST['descripcion'], $_POST['id_user'], $_POST['id_cuaderno']);
+    if($result === true){
+        $msn = 'Nota creado satisfactoriamente';
+    }else{
+        $msn = 'Error en la creación de la nota';
+    }
 }
 
 $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
@@ -48,6 +55,20 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 					<div class="box-content">
                                             <form class="form-horizontal" method="post" name="form1" id="form1">
 						  <fieldset>
+						  <?php if($mostrar_msn == true){ 
+                                                          ?>
+                                                        <div class="alert alert-success">
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong><?php echo $msn; ?></strong>
+                                                       </div>
+                                                        <?php } else{
+                                                            $none = 'style="display:none"';
+                                                        ?>
+                                                      <div class="alert alert-error" <?php echo $none; ?>>
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<strong><?php echo $msn; ?></strong>
+                                                      </div>
+                                                       <?php } ?>
 <!--							<div class="control-group">
 							  <label class="control-label" for="typeahead" name="nombre">Nombre </label>
 							  <div class="controls">
@@ -60,7 +81,7 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
                                                               <select name="id_cuaderno" class="validate[required]">
                                                                   <option value="0">Seleccione</option>
                                                                   <?php foreach ($cuadernos as $cuaderno){ ?>
-                                                                  <option value="<?= $cuaderno['id']; ?>"><?= $cuaderno['nombre']; ?></option>   
+                                                                  <option value="<?php echo $cuaderno['id']; ?>"><?php echo $cuaderno['nombre']; ?></option>   
                                                                   <?php } ?>
                                                               </select>
 							  </div>

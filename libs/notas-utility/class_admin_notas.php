@@ -72,7 +72,7 @@ class class_admin_notas {
         try{
             $now = date('Y/m/d h:i:s');
             $db = ntDB::getInstance();
-            $sql = ' insert into notes (id_user, id_notebook,  descripcion,fecha_creacion) values (?,?,?,?) ';
+            $sql = ' insert into notes (id_user, id_notebook,  descripcion, fecha_creacion) values (?,?,?,?) ';
             $s = $db->prepare( $sql );
             $s->bindParam( 1, $id_user, PDO::PARAM_INT );
             $s->bindParam( 2, $id_cuaderno, PDO::PARAM_INT  );

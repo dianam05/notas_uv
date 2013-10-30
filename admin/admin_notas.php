@@ -2,10 +2,10 @@
 require_once('../connections/conn.php'); 
 require_once ('../config/config.php');
 //print_r($_SESSION);
-Class_restrict::restrict_page();
+//Class_restrict::restrict_page();
 //include('header.php'); 
 
-$notes = class_admin_notas::totalnotas();
+$notes = class_admin_notas::totalnotas2();
 ?>
 <!DOCTYPE html>
 <html lang="es">
