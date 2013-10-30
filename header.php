@@ -7,6 +7,7 @@ Class_restrict::restrict_page();
 $cantidad_user =  notas_utility::countmodules('users');
 $cantidad_cuadernos =  notas_utility::countmodules('cuadernos');
 $cantidad_notas =  notas_utility::countmodules('notas');
+$cantidad_recursos =  notas_utility::countmodules('recursos');
 
  if(!isset($no_visible_elements) || !$no_visible_elements)	{ ?>
 	<!-- topbar starts -->
@@ -122,6 +123,6 @@ $cantidad_notas =  notas_utility::countmodules('notas');
 				<a data-rel="tooltip" t class="well span3 top-block" href="#">
 					<span class="icon32 icon-color icon-image"></span>
 					<div>Recursos</div>
-					<span class="notification red"><?php echo $cantidad_notas; ?></span>
+					<span class="notification red"><?php echo $cantidad_recursos; ?></span>
 				</a>
 			</div>

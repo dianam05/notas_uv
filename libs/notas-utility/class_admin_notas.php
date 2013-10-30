@@ -29,6 +29,9 @@ class class_admin_notas {
         $this->fecha_creacion   = (isset($data['fecha_creacion'])) ? $data['fecha_creacion'] : null;
         $this->id_user     	= (isset($data['id_user'])) ? $data['id_user'] : null;
         $this->id_cuaderno      = (isset($data['id_cuaderno'])) ? $data['id_cuaderno'] : null;
+        $this->username         = (isset($data['username'])) ? $data['username'] : null;
+        $this->nombre           = (isset($data['nombre'])) ? $data['nombre'] : null;
+        
     }
     
     public function totalnotas(){
@@ -46,7 +49,8 @@ class class_admin_notas {
         
         try {
             $db = ntDB::getInstance();
-            $sqlnotas='select id, id_user, id_notebook, descripcion, fecha_creacion,username from notes n inner join user u on n.id_user=u.id_user';
+            $sqlnotas='SELECT notes.id, notes.id_user, notes.id_notebook, notes.descripcion, notes.fecha_creacion, user.id as id_user, user.username ,notebook.id as id_notebook, notebook.nombre
+                FROM `notes`,user,notebook WHERE  notes.id_user=user.id AND notes.id_notebook=notebook.id ORDER BY notes.fecha_creacion DESC';
             $resultado= $db->prepare( $sqlnotas );
             $resultado->execute();
 
@@ -76,8 +80,8 @@ class class_admin_notas {
             $s = $db->prepare( $sql );
             $s->bindParam( 1, $id_user, PDO::PARAM_INT );
             $s->bindParam( 2, $id_cuaderno, PDO::PARAM_INT  );
-            $s->bindParam( 4, $descripcion );
-            $s->bindParam( 5, $now );
+            $s->bindParam( 3, $descripcion );
+            $s->bindParam( 4, $now );
             $s->execute();
             
             $this->id=$db->lastInsertId();
@@ -89,11 +93,10 @@ class class_admin_notas {
             return true;
             
         }catch(Exception $e){
-            return false;
+            //return false;
             return $e->getMessage();
         }
     }
-    
     
     
     public function getId() {
@@ -114,6 +117,14 @@ class class_admin_notas {
     
     public function getIdCuaderno() {
         return $this->id_cuaderno;
+    }
+    
+    public function getUsername() {
+        return $this->username;
+    }
+    
+    public function getNombre() {
+        return $this->nombre;
     }
 }
 

@@ -75,12 +75,13 @@ class class_admin_user {
     public function createUser($username, $password, $email, $id_profile, $estado){
         
        try{
+            $password2 = md5($password);
             $now = date('Y/m/d h:i:s');
             $db = ntDB::getInstance();
             $sql = ' insert into user (username, password,  email, id_profile, fecha_registro, estado) values (?,?,?,?,?,?) ';
             $s = $db->prepare( $sql );
             $s->bindParam( 1, $username );
-            $s->bindParam( 2, $password );
+            $s->bindParam( 2, $password2 );
             $s->bindParam( 3, $email );
             $s->bindParam( 4, $id_profile, PDO::PARAM_INT );
             $s->bindParam( 5, $now );

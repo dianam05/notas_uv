@@ -2,21 +2,35 @@
 require_once('../connections/conn.php'); 
 require_once ('../config/config.php');
 //print_r($_SESSION);
-//Class_restrict::restrict_page();
+Class_restrict::restrict_page();
 //include('header.php'); 
 $mostrar_msn=false;
 $msn='';
+
+
 if(isset($_POST['insert_note'])){
     
     $mostrar_msn = true;
-	$nota = new class_admin_notas();
-    $result = $nota->insert( $_POST['descripcion'], $_POST['id_user'], $_POST['id_cuaderno']);
+    $nota = new class_admin_notas();
+    $result=$nota->insert( $_POST['descripcion'], $_POST['id_user'], $_POST['id_cuaderno']);
     if($result === true){
-        $msn = 'Nota creado satisfactoriamente';
+        $msn = 'Nota creada satisfactoriamente';
     }else{
-        $msn = 'Error en la creación de la nota';
+        $msn = 'Error en la creaciÃ³n dela nota';
+    }
+    
+    $services = $_POST['FILE_NAME'];
+    
+    if($_POST['FILE_NAME'] != ''){
+    
+    $resource = new class_admin_resources();
+    foreach ( $services as $service ) {
+    $resource->insertResource($nota->getId(), $_POST['id_user'], $service);
     }
 }
+}
+
+
 
 $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 ?>
@@ -25,7 +39,7 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 <head>
         
 <?php include_once '../public_head.php'; ?>    
-		
+<link rel="stylesheet" type="text/css" href="<?php echo ROOT_URL; ?>js/uploadify/uploadify.css">		
 </head>
 
 <body>
@@ -55,33 +69,27 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 					<div class="box-content">
                                             <form class="form-horizontal" method="post" name="form1" id="form1">
 						  <fieldset>
-						  <?php if($mostrar_msn == true){ 
+                                                    <?php if($mostrar_msn == true){ 
                                                           ?>
                                                         <div class="alert alert-success">
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã—</button>
 							<strong><?php echo $msn; ?></strong>
                                                        </div>
                                                         <?php } else{
                                                             $none = 'style="display:none"';
                                                         ?>
                                                       <div class="alert alert-error" <?php echo $none; ?>>
-							<button type="button" class="close" data-dismiss="alert">×</button>
+							<button type="button" class="close" data-dismiss="alert">Ã—</button>
 							<strong><?php echo $msn; ?></strong>
                                                       </div>
                                                        <?php } ?>
-<!--							<div class="control-group">
-							  <label class="control-label" for="typeahead" name="nombre">Nombre </label>
-							  <div class="controls">
-                                                              <input type="text" name="nombre">
-							  </div>
-							</div>-->
                                                        <div class="control-group">
 							  <label class="control-label" for="typeahead" name="id_cuaderno">Cuaderno </label>
 							  <div class="controls">
                                                               <select name="id_cuaderno" class="validate[required]">
-                                                                  <option value="0">Seleccione</option>
+                                                                  <option value="">Seleccione</option>
                                                                   <?php foreach ($cuadernos as $cuaderno){ ?>
-                                                                  <option value="<?php echo $cuaderno['id']; ?>"><?php echo $cuaderno['nombre']; ?></option>   
+                                                                  <option value="<?= $cuaderno['id']; ?>"><?= $cuaderno['nombre']; ?></option>   
                                                                   <?php } ?>
                                                               </select>
 							  </div>
@@ -95,13 +103,15 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
 							<div class="control-group">
 							  <label class="control-label" for="fileInput">Agregar recurso</label>
 							  <div class="controls">
-								<input class="input-file uniform_on" id="fileInput" type="file">
+                                                                <input class="input-file uniform_on" type="file"  name="FILE_NAME2_1" id="FILE_NAME2_1" multiple="true" class="validate[required]" />
 							  </div>
 							</div> 
+                                                      <div id="progress"></div>
+                                                      <div id="p_scents"></div>
                                                       <input type="hidden" name="id_user" value="<?php echo $_SESSION['nt_user_id'] ?>">
                                                       
 							<div class="form-actions">
-							  <button type="submit" name="insert_note" class="btn btn-primary">Guardar</button>
+							  <button type="submit" name="insert_note" class="btn btn-primary" onclick="updateRecord(); return false; ">Guardar</button>
 							  <button type="reset" class="btn">Cancelar</button>
 							</div>
 						  </fieldset>
@@ -114,6 +124,8 @@ $cuadernos =  notas_utility::getNotebookUser($_SESSION['nt_user_id']);
     
     
 <?php include('../footer.php'); ?>
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>js/uploadify/jquery.uploadify.min.js" ></script>
+<script type="text/javascript" src="<?php echo ROOT_URL; ?>js/styles.js.php"></script>
     <script>
                 
 		$(document).ready(function(){
