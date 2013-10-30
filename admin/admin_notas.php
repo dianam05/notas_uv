@@ -5,12 +5,12 @@ require_once ('../config/config.php');
 Class_restrict::restrict_page();
 //include('header.php'); 
 
-$notes = class_admin_notas::totalnotas();
+$notes = class_admin_notas::totalnotas2();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-        
+       
 <?php include_once '../public_head.php'; ?>    
 		
 </head>
@@ -52,13 +52,13 @@ $notes = class_admin_notas::totalnotas();
 						  <tbody>
                                                       <?php foreach ($notes as $note){ ?>
 							<tr>
-                                                                <td class="center"><?php echo $note['username']; ?></td>
-								<td class="center"><?php echo $note['id_notebook']; ?></td>
-								<td class="center"><?php echo $note['descripcion']; ?></td>
-								<td class="center"><?php echo $note['fecha_creacion']; ?></td>
+                                                            <td class="center"><?php echo $note->getUsername(); ?></td>
+                                                            <td class="center"><?php echo $note->getNombre(); ?></td>
+                                                            <td class="center"><?php echo $note->getDescripcion(); ?></td>
+                                                            <td class="center"><?php echo $note->getFechaCreacion(); ?></td>
                                                                 <td class="center"></td>
 								<td class="center">
-									<a class="btn btn-success" href="#">
+                                                                    <a class="btn btn-success" href="<?php echo ROOT_URL; ?>admin/view_nota.php?note=<?php echo $note->getId(); ?>">
 										<i class="icon-zoom-in icon-white"></i>  
 										Ver                                            
 									</a>

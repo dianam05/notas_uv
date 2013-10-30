@@ -57,6 +57,9 @@ class notas_utility {
                 case 'notas':
                     $st = $db->prepare('SELECT count(id)as cant FROM notes  ');
                     break;
+                case 'recursos':
+                    $st = $db->prepare('SELECT count(id)as cant FROM resources  ');
+                    break;
                 default:
                     
             }

@@ -55,11 +55,11 @@ $usuarios = class_admin_user::getAllUser();
 						  <tbody>
                                                       <?php foreach ($usuarios as $usuario){ ?>
 							<tr>
-                                                            <td><?= $usuario->getUsername(); ?></td>
-                                                            <td class="center"><?= $usuario->getEmail(); ?></td>
-                                                            <td class="center"><?= $usuario->getTipo(); ?></td>
-                                                            <td class="center"><?= $usuario->getFechaRegistro(); ?></td>
-                                                            <td class="center"><?= $usuario->getTipoEstado(); ?></td>
+                                                            <td><?php echo $usuario->getUsername(); ?></td>
+                                                            <td class="center"><?php echo $usuario->getEmail(); ?></td>
+                                                            <td class="center"><?php echo $usuario->getTipo(); ?></td>
+                                                            <td class="center"><?php echo $usuario->getFechaRegistro(); ?></td>
+                                                            <td class="center"><?php echo $usuario->getTipoEstado(); ?></td>
                                                       
 								<td class="center">
 									<a class="btn btn-success" href="#">

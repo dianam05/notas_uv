@@ -1,0 +1,106 @@
+    <div class="btn-continuar"><img src="images/btn_continua.png" width="85" height="23"></div> 
+
+-----------------video pequeño-------------------------------
+ <div class="swf-mov">
+           <iframe width="320" height="180" src="http://www.youtube.com/embed/r3vmzksvuAQ" frameborder="0" allowfullscreen></iframe>
+         </div>
+        
+        <div class="caption">Video 1.<strong id="internal-source-marker_0.3"> Química II: Sesión 5, química del agua (parte 1)</strong> Fuente: <a href="http://www.youtube.com/watch?v=r3vmzksvuAQ" target="_blank">YouTube</a>
+</div>
+
+----------------------infografia-----------------------------
+ <div class="grid_6">
+  <div class="swf-mov">
+          <object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="690" height="325">
+            <param name="movie" value="swf/reutilizacion-agua.swf">
+            <param name="quality" value="high">
+            <param name="wmode" value="opaque">
+            <param name="swfversion" value="6.0.65.0">
+            <!-- Esta etiqueta param indica a los usuarios de Flash Player 6.0 r65 o posterior que descarguen la versión más reciente de Flash Player. Elimínela si no desea que los usuarios vean el mensaje. -->
+            <param name="expressinstall" value="Scripts/expressInstall.swf">
+            <!-- La siguiente etiqueta object es para navegadores distintos de IE. Ocúltela a IE mediante IECC. --> 
+            <!--[if !IE]>-->
+            <object type="application/x-shockwave-flash" data="swf/reutilizacion-agua.swf" width="690" height="325">
+              <!--<![endif]-->
+              <param name="quality" value="high">
+              <param name="wmode" value="opaque">
+              <param name="swfversion" value="6.0.65.0">
+              <param name="expressinstall" value="Scripts/expressInstall.swf">
+              <!-- El navegador muestra el siguiente contenido alternativo para usuarios con Flash Player 6.0 o versiones anteriores. -->
+              <div>
+                <h4>El contenido de esta página requiere una versión más reciente de Adobe Flash Player.</h4>
+                <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" width="112" height="33" /></a></p>
+              </div>
+              <!--[if !IE]>-->
+            </object>
+            <!--<![endif]-->
+          </object>
+        </div>
+		
+         <div class="caption">Infografía 1. <strong><a href="http://www.consumer.es/web/es/medio_ambiente/urbano/2008/06/15/177775.php" target="_blank">aprovechamiento del agua de lluvia</a></strong>. Fuente: <a href="http://www.consumer.es " target="_blank">Consumer</a></div>
+   </div>
+------------------descarga-----------------------
+   <div class="op-descarga">
+          <h3>Recursos</h3>
+          <div class="boton"><a href="mailto:nhmrc.publications@nhmrc.gov.au " target="_blank"><img src="images/btn/mail_btn.png" /></a></div>
+          <div class="boton"><a href="http://www.nhmrc.gov.au/_files_nhmrc/publications/attachments/eh52_aust_drinking_water_guidelines_update_120710_0.pdf" target="_blank"><img src="images/btn/pdf_btn.png"/></a></div>
+          <div class="txtbox"><span>Idioma:</span>ingl&eacute;s<br>
+            <span>Tamaño:</span>9,095 kb</div>
+        </div>
+
+------------------video grande-------------------------
+
+<div class="grid_6">
+			<div class="swf-mov">
+				<iframe width="650" height="320" src="http://www.youtube.com/embed/iLAvWIKPrUA"></iframe>
+			</div>
+				<div class="caption">Video 7.<strong id="internal-source-marker_0.3"> Calidad de aguas. Las fuentes de suministro.© UPV</strong>. Fuente: <a href="http://www.youtube.com/watch?v=iLAvWIKPrUA" target="_blank">YouTube</a>
+    			</div>
+		</div>
+-----------------------imagen pequeña---------------------
+   
+      <div class="img-container"><a href="images/textiles-20130601/img1.png"><img src="images/textiles-20130601/img1.png" width="156" height="257"/></a>
+      </div>
+      <div class="caption">Imagen 1. <strong>canning Electron Microscope (SEM) images of (a) Untreated and (b) Treated cotton fabric. </strong><br>
+      Doc. 42, p&aacute;g.5, fig.4
+      </div>
+
+
+
+<div class="img-container"><a href="images/modysim-20130201/img2a.png"><img src="images/modysim-20130201/img2.png" width="324" height="183" alt="Acceso online en tiempo real y mantenimiento de los procesos vía Internet/Intranet" /></a>
+                   <div class="caption">Imagen 2. <strong>The distillation section. CW: Cooling Water, LP: Low Pressure Steam.</strong><br>
+          Doc. 30, p&aacute;g.15</div>
+        </div>
+---------------imagen grande------------------------
+<div class="grid_6">
+	   <div class="img-container"><a href="images/hidrol-20130401/img1_a.png"><img src="images/hidrol-20130401/img1_a.png" width="439" height="400" alt="Acceso online en tiempo real y mantenimiento de los procesos vía Internet/Intranet" /></a>
+                   <div class="caption">Imagen 1. <strong>Algunas de las proteasas disponibles comercialmente en grado alimenticio (15)(18).</strong><br>
+          Doc. 15, p&aacute;g.229, tabla 1</div>
+        </div>
+</div>
+
+-------------bibliografia gris------------------------
+  <div class="bibliografia">
+    <h2>B<strong>ibliograf&iacute;a y m&aacute;s informaci&oacute;n</strong></h2>
+      <ul>
+        <ul>
+          <ul>
+            <li>Daum, P.J. (s.f.). “S.S. Beato Juan XXIII (1958-1963)”. Recuperado el 1 de marzo de 2013 de <a href="http://es.catholic.net/sacerdotes/487/1076/articulo.php?id=8198" target="_blank">http://es.catholic.net/sacerdotes/487/1076/articulo.php?id=8198</a></li>
+             <li>Directorio Franciscano (s.f.). “Beato Juan XIII (1881-1963). Textos de L'Osservatore Romano”. Recuperado el 1 de marzo de 2013 de <a href"http://www.franciscanos.org/osservatore/juanxxiii.html" target="_blank">http://www.franciscanos.org/osservatore/juanxxiii.html</a></li>
+            <li>Directorio Franciscano (s.f.). “Beato Juan XIII (1881-1963)”. Recuperado el 1 de marzo de 2013 de <a href="http://www.franciscanos.org/santoral/juanxxiii.htm" target="_blank">http://www.franciscanos.org/santoral/juanxxiii.htm</a></li>
+            <li>Vaticano. (s.f.). “Ioannes PP. XXIII. Angelo Giuseppe Roncalli”. Recuperado el 1 de marzo de 2013 de <a href="http://www.vatican.va/holy_father/john_xxiii/index_sp.htm" target="_blank">http://www.academiasocrates.com/socrates/eugenio_moya.pdf 
+</a></li>
+            <li>Wikipedia (s.f.). “Juan XXIII”. Recuperado el 1 de marzo de 2013 de <a href="http://es.wikipedia.org/wiki/Juan_XXIII" target="_blank">http://es.wikipedia.org/wiki/Juan_XXIII</a></strong></li>
+           
+            
+              
+          </ul>
+        </ul>
+      </ul>
+  </div>
+
+
+
+
+
+
